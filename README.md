@@ -18,4 +18,4 @@ You should install the "Google Licensing library". To do that:
 5. click OK
 
 See screenshot below:
-![steps to install Licensing library](install_license_explanation.png)
+![steps to install Licensing library](install_license_explanation.png)"# postpc-2021-ex1" 
