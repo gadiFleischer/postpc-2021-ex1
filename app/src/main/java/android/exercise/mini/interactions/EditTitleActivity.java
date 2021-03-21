@@ -37,11 +37,15 @@ public class EditTitleActivity extends AppCompatActivity {
     fabEditDone.setVisibility(View.GONE);
     textViewTitle.setText("Page title here");
     textViewTitle.setVisibility(View.VISIBLE);
-    editTextTitle.setText("Page title here");
+    editTextTitle.setText("Edit title here");
     editTextTitle.setVisibility(View.GONE);
 
     // handle clicks on "start edit"
     fabStartEdit.setOnClickListener(v -> {
+      fabStartEdit.setVisibility(View.GONE);
+      textViewTitle.setVisibility(View.GONE);
+      fabEditDone.setVisibility(View.VISIBLE);
+      editTextTitle.setVisibility(View.VISIBLE);
       /*
       TODO:
       1. animate out the "start edit" FAB
@@ -58,6 +62,10 @@ public class EditTitleActivity extends AppCompatActivity {
 
     // handle clicks on "done edit"
     fabEditDone.setOnClickListener(v -> {
+      fabStartEdit.setVisibility(View.VISIBLE);
+      textViewTitle.setVisibility(View.VISIBLE);
+      fabEditDone.setVisibility(View.GONE);
+      editTextTitle.setVisibility(View.GONE);
       /*
       TODO:
       1. animate out the "done edit" FAB
