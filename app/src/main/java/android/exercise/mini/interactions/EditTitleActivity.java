@@ -10,26 +10,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class EditTitleActivity extends AppCompatActivity {
-  // find all views
-  FloatingActionButton fabStartEdit = findViewById(R.id.fab_start_edit);
-  FloatingActionButton fabEditDone = findViewById(R.id.fab_edit_done);
-  TextView textViewTitle = findViewById(R.id.textViewPageTitle);
-  EditText editTextTitle = findViewById(R.id.editTextPageTitle);
-  private boolean isEditing = false;
 
-  // TODO:
-  //  you can add fields to this class. those fields will be accessibly inside any method
-  //  (like `onCreate()` and `onBackPressed()` methods)
-  // for any field, make sure to set it's initial value. You CAN'T write a custom constructor
-  // for example, you can add this field:
-  // `private boolean isEditing = false;`
-  // in onCreate() set `this.isEditing` to `true` once the user starts editing, set to `false` once done editing
-  // in onBackPressed() check `if(this.isEditing)` to understand what to do
+  boolean isEditing = false;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_edit_title);
+
+    // find all views
+    FloatingActionButton fabStartEdit = findViewById(R.id.fab_start_edit);
+    FloatingActionButton fabEditDone = findViewById(R.id.fab_edit_done);
+    TextView textViewTitle = findViewById(R.id.textViewPageTitle);
+    EditText editTextTitle = findViewById(R.id.editTextPageTitle);
 
     // setup - start from static title with "edit" button
     fabStartEdit.setVisibility(View.VISIBLE);
@@ -38,7 +31,6 @@ public class EditTitleActivity extends AppCompatActivity {
     textViewTitle.setVisibility(View.VISIBLE);
     editTextTitle.setText("Page title here");
     editTextTitle.setVisibility(View.GONE);
-//    oldTitle = textViewTitle.getText().toString();
 
     // handle clicks on "start edit"
     fabStartEdit.setOnClickListener(v -> {
@@ -47,7 +39,6 @@ public class EditTitleActivity extends AppCompatActivity {
       textViewTitle.setVisibility(View.GONE);
       fabEditDone.setVisibility(View.VISIBLE);
       editTextTitle.setVisibility(View.VISIBLE);
-
 
       /*
       TODO:
@@ -66,7 +57,6 @@ public class EditTitleActivity extends AppCompatActivity {
     // handle clicks on "done edit"
     fabEditDone.setOnClickListener(v -> {
       isEditing=false;
-      //set title
       String newTitle = editTextTitle.getText().toString();
       textViewTitle.setText(newTitle);
       editTextTitle.setText(newTitle);
@@ -89,9 +79,14 @@ public class EditTitleActivity extends AppCompatActivity {
     });
   }
 
-  // BACK button was clicked
   @Override
   public void onBackPressed() {
+    // find all views
+    FloatingActionButton fabStartEdit = findViewById(R.id.fab_start_edit);
+    FloatingActionButton fabEditDone = findViewById(R.id.fab_edit_done);
+    TextView textViewTitle = findViewById(R.id.textViewPageTitle);
+    EditText editTextTitle = findViewById(R.id.editTextPageTitle);
+
     if(isEditing){
       fabStartEdit.setVisibility(View.VISIBLE);
       textViewTitle.setVisibility(View.VISIBLE);
