@@ -5,13 +5,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class EditTitleActivity extends AppCompatActivity {
 
+//  String newTitle;
   // TODO:
   //  you can add fields to this class. those fields will be accessibly inside any method
   //  (like `onCreate()` and `onBackPressed()` methods)
@@ -26,6 +26,7 @@ public class EditTitleActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_edit_title);
 
+
     // find all views
     FloatingActionButton fabStartEdit = findViewById(R.id.fab_start_edit);
     FloatingActionButton fabEditDone = findViewById(R.id.fab_edit_done);
@@ -37,7 +38,7 @@ public class EditTitleActivity extends AppCompatActivity {
     fabEditDone.setVisibility(View.GONE);
     textViewTitle.setText("Page title here");
     textViewTitle.setVisibility(View.VISIBLE);
-    editTextTitle.setText("Edit title here");
+    editTextTitle.setText("Page title here");
     editTextTitle.setVisibility(View.GONE);
 
     // handle clicks on "start edit"
@@ -46,6 +47,8 @@ public class EditTitleActivity extends AppCompatActivity {
       textViewTitle.setVisibility(View.GONE);
       fabEditDone.setVisibility(View.VISIBLE);
       editTextTitle.setVisibility(View.VISIBLE);
+
+
       /*
       TODO:
       1. animate out the "start edit" FAB
@@ -62,6 +65,9 @@ public class EditTitleActivity extends AppCompatActivity {
 
     // handle clicks on "done edit"
     fabEditDone.setOnClickListener(v -> {
+      String newTitle = editTextTitle.getText().toString();
+      textViewTitle.setText(newTitle);
+      editTextTitle.setText(newTitle);
       fabStartEdit.setVisibility(View.VISIBLE);
       textViewTitle.setVisibility(View.VISIBLE);
       fabEditDone.setVisibility(View.GONE);
